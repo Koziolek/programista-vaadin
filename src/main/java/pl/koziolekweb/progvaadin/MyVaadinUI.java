@@ -51,25 +51,10 @@ public class MyVaadinUI extends UI {
 	}
 
 	private void prepareFormComponents(Tree componentTree, String parentId) {
-		String simpleFrmCmpRtId = "Komponenty formularzy";
-		componentTree.addItem(simpleFrmCmpRtId);
-		componentTree.setChildrenAllowed(simpleFrmCmpRtId, true);
-		setParent(componentTree, parentId, simpleFrmCmpRtId);
-		addComponentNodeToTree(componentTree, simpleFrmCmpRtId, new InputNode(splitPanel));
-		addComponentNodeToTree(componentTree, simpleFrmCmpRtId, new TextAreaNode(splitPanel));
-		addComponentNodeToTree(componentTree, simpleFrmCmpRtId, new PasswordNode(splitPanel));
-		addComponentNodeToTree(componentTree, simpleFrmCmpRtId, new DateAndTimeNode(splitPanel));
-		addComponentNodeToTree(componentTree, simpleFrmCmpRtId, new CheckboxNode(splitPanel));
-		addComponentNodeToTree(componentTree, simpleFrmCmpRtId, new OptionNode(splitPanel));
+		new FormComponentsNode(splitPanel).attachToTree(componentTree, parentId);
 
-		addSelectNodes();
 
 	}
-
-	private void addSelectNodes() {
-		String selectsNodeId = "Pola wyboru";
-	}
-
 
 	/**
 	 * Gałąź podstawowych komponentów
@@ -78,30 +63,7 @@ public class MyVaadinUI extends UI {
 	 * @param parentId      id korzenia
 	 */
 	private void prepareSimpleComponents(Tree componentTree, String parentId) {
-		String simpleCmpRtId = "Komponenty Podstawowe";
-		componentTree.addItem(simpleCmpRtId);
-		componentTree.setChildrenAllowed(simpleCmpRtId, true);
-		setParent(componentTree, parentId, simpleCmpRtId);
-		addComponentNodeToTree(componentTree, simpleCmpRtId, new LabelNode(splitPanel));
-		addComponentNodeToTree(componentTree, simpleCmpRtId, new LinkNode(splitPanel));
-	}
-
-	private void addComponentNodeToTree(Tree componentTree, String parentId, AbstractItemNode linkNode) {
-		componentTree.addItem(linkNode);
-		componentTree.setChildrenAllowed(linkNode, false);
-		componentTree.addItemClickListener(linkNode);
-		setParent(componentTree, parentId, linkNode);
-	}
-
-	/**
-	 * ustawa rodzica
-	 *
-	 * @param componentTree drzewo
-	 * @param parentId      id rodzica
-	 * @param nodeId        id liścia
-	 */
-	private void setParent(Tree componentTree, String parentId, Object nodeId) {
-		componentTree.setParent(nodeId, parentId);
+		new SimpleComponentsNode(splitPanel).attachToTree(componentTree, parentId);
 	}
 
 	private Panel fullWindowPanel() {

@@ -11,21 +11,21 @@ import com.vaadin.ui.Select;
  * To change this template use File | Settings | File Templates.
  */
 @SuppressWarnings("deprecation")
-class SimpleSelectNode extends AbstractItemNode {
+class SelectNode extends AbstractItemNode {
 
-	public SimpleSelectNode(HorizontalSplitPanel target) {
+	public SelectNode(HorizontalSplitPanel target) {
 		super(target);
 	}
 
 	@Override
 	public void onClick() {
-		Select simpleSelect = new Select();
-		simpleSelect.addItem("Prosty select 1.1");
-		simpleSelect.addItem("Prosty select 1.2");
-		setExample(simpleSelect);
-		setSourceCode("Select simpleSelect = new Select();" +
-				"<br />simpleSelect.addItem(\"Prosty select 1.1\");" +
-				"<br />simpleSelect.addItem(\"Prosty select 1.2\");");
+		Select select = new Select();
+		for (int i = 1; i < 10; i++)
+			select.addItem("Prosty select 1." + i);
+		setExample(select);
+		setSourceCode("Select select = new Select();" +
+				"<br />for (int i = 1; i < 10; i++)" +
+				"<br />select.addItem(\"Prosty select 1.\"+i);");
 		done();
 	}
 

@@ -30,6 +30,7 @@ public class OptionNode extends AbstractItemNode {
 		HorizontalLayout ll = new HorizontalLayout();
 		ll.addComponent(optionGroup1);
 		ll.addComponent(optionGroup2);
+		ll.setSpacing(true);
 		setExample(ll);
 		setSourceCode("OptionGroup optionGroup1 = new OptionGroup(\"Pierwsza grupa\");" +
 				"<br />optionGroup1.addItem(\"Opcja 1.1\");" +

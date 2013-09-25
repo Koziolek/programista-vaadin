@@ -37,7 +37,10 @@ public abstract class AbstractItemNode
 	 * @param c przkładowy komponent.
 	 */
 	protected void setExample(Component c) {
-		internalSplitPanel.setFirstComponent(c);
+		VerticalLayout p = new VerticalLayout();
+		p.setSizeFull();
+		p.addComponent(c);
+		internalSplitPanel.setFirstComponent(p);
 	}
 
 	/**

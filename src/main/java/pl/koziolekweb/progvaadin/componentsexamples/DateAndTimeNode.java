@@ -1,7 +1,10 @@
 package pl.koziolekweb.progvaadin.componentsexamples;
 
+import com.vaadin.shared.ui.datefield.Resolution;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalSplitPanel;
+import com.vaadin.ui.PopupDateField;
+import com.vaadin.ui.VerticalLayout;
 
 import java.util.Date;
 
@@ -19,13 +22,27 @@ public class DateAndTimeNode extends AbstractItemNode {
 
 	@Override
 	public void onClick() {
-		DateField dateField = new DateField();
-		dateField.setDateFormat("dd-MM-yyyy hh:mm");
+		DateField dateField = new DateField("Kalendarz");
+		dateField.setDateFormat("dd-MM-yyyy HH:mm");
 		dateField.setValue(new Date());
-		setExample(dateField);
-		setSourceCode("DateField dateField = new DateField();" +
-				"<br/>dateField.setDateFormat(\"dd-MM-yyyy hh:mm\");" +
-				"<br/>dateField.setValue(new Date());");
+		PopupDateField popupDateField = new PopupDateField();
+		popupDateField.setDateFormat("dd-MM-yyyy hh:mm");
+		popupDateField.setValue(new Date());
+		popupDateField.setResolution(Resolution.HOUR);
+
+
+		VerticalLayout ll = new VerticalLayout();
+		ll.addComponent(dateField);
+		ll.addComponent(popupDateField);
+		setExample(ll);
+
+		setSourceCode("DateField dateField = new DateField(\"Kalendarz\");" +
+				"<br />dateField.setDateFormat(\"dd-MM-yyyy hh:mm\");" +
+				"<br />dateField.setValue(new Date());" +
+				"<br />PopupDateField popupDateField = new PopupDateField();" +
+				"<br />popupDateField.setDateFormat(\"dd-MM-yyyy hh:mm\");" +
+				"<br />popupDateField.setValue(new Date());" +
+				"<br />popupDateField.setResolution(Resolution.HOUR)");
 		done();
 	}
 

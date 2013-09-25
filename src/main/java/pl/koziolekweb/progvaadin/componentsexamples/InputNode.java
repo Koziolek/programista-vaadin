@@ -17,9 +17,9 @@ public class InputNode extends AbstractItemNode {
 
 	@Override
 	public void onClick() {
-		TextField textField = new TextField();
+		TextField textField = new TextField("Przykładowe pole");
 		setExample(textField);
-		setSourceCode("TextField textField = new TextField();");
+		setSourceCode("TextField textField = new TextField(\"Przykładowe pole\");");
 		done();
 	}
 

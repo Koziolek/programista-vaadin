@@ -68,16 +68,14 @@ public class MyVaadinUI extends UI {
 
 	private Panel fullWindowPanel() {
 		Panel panel = new Panel();
-		panel.setHeight(100, PERCENTAGE);
-		panel.setWidth(100, PERCENTAGE);
+		panel.setSizeFull();
 		return panel;
 	}
 
 	private VerticalLayout prepareLayout() {
 		final VerticalLayout layout = new VerticalLayout();
 		layout.setMargin(true);
-		layout.setHeight(100, PERCENTAGE);
-		layout.setWidth(100, PERCENTAGE);
+		layout.setSizeFull();
 		return layout;
 	}
 

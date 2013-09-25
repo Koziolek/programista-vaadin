@@ -24,8 +24,11 @@ class SelectComponentsNode extends AbstractComponentsNode {
 		componentTree.addItem(name);
 		componentTree.setChildrenAllowed(name, true);
 		setParent(componentTree, parentId, name);
-		addComponentNodeToTree(componentTree, name, new SimpleSelectNode(target));
+		addComponentNodeToTree(componentTree, name, new SelectNode(target));
 		addComponentNodeToTree(componentTree, name, new ListSelectNode(target));
+		addComponentNodeToTree(componentTree, name, new NativeSelectNode(target));
+		addComponentNodeToTree(componentTree, name, new TwinColSelectNode(target));
+
 
 	}
 }

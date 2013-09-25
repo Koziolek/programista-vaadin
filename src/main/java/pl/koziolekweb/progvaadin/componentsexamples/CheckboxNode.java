@@ -1,9 +1,6 @@
 package pl.koziolekweb.progvaadin.componentsexamples;
 
-import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.HorizontalSplitPanel;
-import com.vaadin.ui.Panel;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
 
 /**
  * Created with IntelliJ IDEA.

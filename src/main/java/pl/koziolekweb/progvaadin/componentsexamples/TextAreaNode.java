@@ -18,10 +18,10 @@ public class TextAreaNode extends AbstractItemNode {
 
 	@Override
 	public void onClick() {
-		TextArea textArea = new TextArea();
+		TextArea textArea = new TextArea("Przykładowa TextArea");
 		textArea.setRows(5);
 		setExample(textArea);
-		setSourceCode("TextArea textArea = new TextArea();" +
+		setSourceCode("TextArea textArea = new TextArea(\"Przykładowa TextArea\");" +
 				"<br/>textArea.setRows(5);");
 		done();
 	}

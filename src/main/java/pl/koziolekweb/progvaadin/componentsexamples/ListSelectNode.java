@@ -1,9 +1,6 @@
 package pl.koziolekweb.progvaadin.componentsexamples;
 
-import com.vaadin.ui.AbstractSelect;
-import com.vaadin.ui.HorizontalSplitPanel;
-import com.vaadin.ui.ListSelect;
-import com.vaadin.ui.Tree;
+import com.vaadin.ui.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,11 +19,32 @@ public class ListSelectNode extends AbstractItemNode {
 	public void onClick() {
 		ListSelect listSelect = new ListSelect();
 		listSelect.setRows(5);
-		for (int i = 1; i < 100; i++)
+		for (int i = 1; i < 10; i++)
 			listSelect.addItem("Opcja 1." + i);
 
-		setExample(listSelect);
-		setSourceCode("");
+		ListSelect listMultiSelect = new ListSelect();
+		listMultiSelect.setRows(5);
+		listMultiSelect.setMultiSelect(true);
+		listMultiSelect.setNewItemsAllowed(true);
+		for (int i = 1; i < 10; i++)
+			listMultiSelect.addItem("Opcja 2." + i);
+
+
+		VerticalLayout ll = new VerticalLayout();
+		ll.addComponent(listSelect);
+		ll.addComponent(listMultiSelect);
+		setExample(ll);
+		setSourceCode("ListSelect listSelect = new ListSelect();" +
+				"<br />listSelect.setRows(5);" +
+				"<br />for (int i = 1; i < 10; i++)" +
+				"<br />listSelect.addItem(\"Opcja 1.\" + i);" +
+				"<br />" +
+				"<br />ListSelect listMultiSelect = new ListSelect();" +
+				"<br />listMultiSelect.setRows(5);" +
+				"<br />listMultiSelect.setMultiSelect(true);" +
+				"<br />listMultiSelect.setNewItemsAllowed(true);" +
+				"<br />for (int i = 1; i < 10; i++)" +
+				"<br />listMultiSelect.addItem(\"Opcja 1.\" + i);");
 		done();
 	}
 

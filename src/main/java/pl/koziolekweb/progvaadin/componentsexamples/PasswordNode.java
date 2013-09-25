@@ -18,9 +18,9 @@ public class PasswordNode extends AbstractItemNode {
 
 	@Override
 	public void onClick() {
-		PasswordField passwordField = new PasswordField();
+		PasswordField passwordField = new PasswordField("Przykładowe hasło");
 		setExample(passwordField);
-		setSourceCode("PasswordField passwordField = new PasswordField();");
+		setSourceCode("PasswordField passwordField = new PasswordField(\"Przykładowe hasło\");");
 		done();
 	}
 

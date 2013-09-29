@@ -1,7 +1,8 @@
-package pl.koziolekweb.progvaadin.componentsexamples;
+package pl.koziolekweb.progvaadin.componentsexamples.formexample;
 
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Tree;
+import pl.koziolekweb.progvaadin.componentsexamples.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,6 +33,9 @@ public class FormComponentsNode extends AbstractComponentsNode {
 		addComponentNodeToTree(componentTree, name, new CheckboxNode(target));
 		addComponentNodeToTree(componentTree, name, new OptionNode(target));
 		addSelectNodes(componentTree, name);
+		addComponentNodeToTree(componentTree, name, new RichTextAreaNode(target));
+		addComponentNodeToTree(componentTree, name, new UploadNode(target));
+		addComponentNodeToTree(componentTree, name, new SliderNode(target));
 	}
 
 	private void addSelectNodes(Tree componentTree, String parentId) {

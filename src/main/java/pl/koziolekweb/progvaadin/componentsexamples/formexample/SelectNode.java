@@ -1,7 +1,8 @@
-package pl.koziolekweb.progvaadin.componentsexamples;
+package pl.koziolekweb.progvaadin.componentsexamples.formexample;
 
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Select;
+import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,6 +23,7 @@ class SelectNode extends AbstractItemNode {
 		Select select = new Select();
 		for (int i = 1; i < 10; i++)
 			select.addItem("Prosty select 1." + i);
+
 		setExample(select);
 		setSourceCode("Select select = new Select();" +
 				"<br />for (int i = 1; i < 10; i++)" +

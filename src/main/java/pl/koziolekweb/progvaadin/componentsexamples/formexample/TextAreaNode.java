@@ -1,7 +1,8 @@
-package pl.koziolekweb.progvaadin.componentsexamples;
+package pl.koziolekweb.progvaadin.componentsexamples.formexample;
 
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.TextArea;
+import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
 
 /**
  * Created with IntelliJ IDEA.

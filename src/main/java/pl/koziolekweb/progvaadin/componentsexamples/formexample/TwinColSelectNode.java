@@ -1,7 +1,8 @@
-package pl.koziolekweb.progvaadin.componentsexamples;
+package pl.koziolekweb.progvaadin.componentsexamples.formexample;
 
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.TwinColSelect;
+import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +18,7 @@ public class TwinColSelectNode extends AbstractItemNode {
 
 	@Override
 	public void onClick() {
-		TwinColSelect twinColSelect = new TwinColSelect();
+		TwinColSelect twinColSelect = new TwinColSelect("Wybór dwukolumnowy");
 		for (int i = 1; i < 10; i++)
 			twinColSelect.addItem("Opjca 1." + i);
 		setExample(twinColSelect);
@@ -32,3 +33,4 @@ public class TwinColSelectNode extends AbstractItemNode {
 		return "TwinColSelect";
 	}
 }
+

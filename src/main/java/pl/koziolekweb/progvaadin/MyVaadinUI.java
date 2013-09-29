@@ -5,7 +5,9 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
-import pl.koziolekweb.progvaadin.componentsexamples.*;
+import pl.koziolekweb.progvaadin.componentsexamples.formexample.FormComponentsNode;
+import pl.koziolekweb.progvaadin.componentsexamples.simpleexaple.SimpleComponentsNode;
+import pl.koziolekweb.progvaadin.componentsexamples.treeexample.TreeComponentsNode;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -46,14 +48,17 @@ public class MyVaadinUI extends UI {
 		componentTree.setChildrenAllowed(rootItemId, true);
 		prepareSimpleComponents(componentTree, rootItemId);
 		prepareFormComponents(componentTree, rootItemId);
+		prepareTreeComponents(componentTree, rootItemId);
 		componentTree.expandItemsRecursively(rootItemId);
 		return componentTree;
 	}
 
+	private void prepareTreeComponents(Tree componentTree, String parentId) {
+		new TreeComponentsNode(splitPanel).attachToTree(componentTree, parentId);
+	}
+
 	private void prepareFormComponents(Tree componentTree, String parentId) {
 		new FormComponentsNode(splitPanel).attachToTree(componentTree, parentId);
-
-
 	}
 
 	/**

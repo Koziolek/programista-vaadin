@@ -26,11 +26,15 @@ public class MenuNode extends AbstractItemNode {
 
 		MenuBar.MenuItem korzenItem = menuBar.addItem(korzen, null);
 		MenuBar.MenuItem galaz1Item = korzenItem.addItem(galaz1, null);
-		MenuBar.MenuItem galaz2Item = galaz1Item.addItem(galaz2, null);
+		MenuBar.MenuItem galaz2Item = korzenItem.addItem(galaz2, null);
 		MenuBar.MenuItem liscItem = galaz2Item.addItem(lisc, null);
 
 		setExample(menuBar);
-		setSourceCode("");
+		setSourceCode("MenuBar menuBar = new MenuBar();" +
+				"<br />MenuBar.MenuItem korzenItem = menuBar.addItem(korzen, null);" +
+				"<br />MenuBar.MenuItem galaz1Item = korzenItem.addItem(galaz1, null);" +
+				"<br />MenuBar.MenuItem galaz2Item = korzenItem.addItem(galaz2, null);" +
+				"<br />MenuBar.MenuItem liscItem = galaz2Item.addItem(lisc, null);");
 		done();
 
 	}

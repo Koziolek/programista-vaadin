@@ -18,30 +18,37 @@ public class TreeNode extends AbstractItemNode {
 
 	@Override
 	public void onClick() {
-		Tree treeRoot = new Tree("Proste drzewo");
 		String korzen = "Korzeń";
-
-		treeRoot.addItem(korzen);
-		treeRoot.setChildrenAllowed(korzen, true);
-
 		String galaz1 = "Gałąź 1";
-		treeRoot.addItem(galaz1);
-		treeRoot.setChildrenAllowed(galaz1, true);
-
 		String galaz2 = "Gałąź 2";
-		treeRoot.addItem(galaz2);
-		treeRoot.setChildrenAllowed(galaz2, false);
-
 		String lisc = "Liść";
-		treeRoot.addItem(lisc);
-		treeRoot.setChildrenAllowed(lisc, false);
 
+		Tree treeRoot = new Tree("Proste drzewo");
+		treeRoot.addItem(korzen);
+		treeRoot.addItem(galaz1);
+		treeRoot.addItem(galaz2);
+		treeRoot.addItem(lisc);
+		treeRoot.setChildrenAllowed(korzen, true);
+		treeRoot.setChildrenAllowed(galaz1, true);
+		treeRoot.setChildrenAllowed(galaz2, false);
+		treeRoot.setChildrenAllowed(lisc, false);
 		treeRoot.setParent(galaz1, korzen);
-			treeRoot.setParent(lisc, galaz1);
+		treeRoot.setParent(lisc, galaz1);
 		treeRoot.setParent(galaz2, korzen);
 
 		setExample(treeRoot);
-		setSourceCode("");
+		setSourceCode("Tree treeRoot = new Tree(\"Proste drzewo\");" +
+				"<br />treeRoot.addItem(korzen);"+
+				"<br />treeRoot.addItem(galaz1);"+
+				"<br />treeRoot.addItem(galaz2);"+
+				"<br />treeRoot.addItem(lisc);"+
+				"<br />treeRoot.setChildrenAllowed(korzen, true);"+
+				"<br />treeRoot.setChildrenAllowed(galaz1, true);"+
+				"<br />treeRoot.setChildrenAllowed(galaz2, false);"+
+				"<br />treeRoot.setChildrenAllowed(lisc, false);"+
+				"<br />treeRoot.setParent(galaz1, korzen);"+
+				"<br />treeRoot.setParent(lisc, galaz1);"+
+				"<br />treeRoot.setParent(galaz2, korzen);");
 		done();
 	}
 

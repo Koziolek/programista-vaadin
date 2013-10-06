@@ -5,7 +5,7 @@ import com.vaadin.shared.ui.slider.SliderOrientation;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Slider;
 import com.vaadin.ui.VerticalLayout;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
+import pl.koziolekweb.progvaadin.AbstractItemNode;
 
 /**
  * Created with IntelliJ IDEA.

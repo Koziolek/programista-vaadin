@@ -1,9 +1,9 @@
-package pl.koziolekweb.progvaadin.componentsexamples.resouceexample;
+package pl.koziolekweb.progvaadin.componentsexamples.otherexample;
 
 import com.vaadin.server.Page;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Notification;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
+import pl.koziolekweb.progvaadin.AbstractItemNode;
 
 /**
  * Created with IntelliJ IDEA.

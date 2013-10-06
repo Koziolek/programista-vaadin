@@ -2,7 +2,7 @@ package pl.koziolekweb.progvaadin.componentsexamples.treeexample;
 
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.MenuBar;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
+import pl.koziolekweb.progvaadin.AbstractItemNode;
 
 /**
  * Created with IntelliJ IDEA.

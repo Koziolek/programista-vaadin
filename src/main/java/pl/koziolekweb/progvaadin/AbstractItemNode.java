@@ -1,4 +1,4 @@
-package pl.koziolekweb.progvaadin.componentsexamples;
+package pl.koziolekweb.progvaadin;
 
 import com.vaadin.event.ItemClickEvent;
 import com.vaadin.shared.ui.label.ContentMode;

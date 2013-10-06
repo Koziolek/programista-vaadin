@@ -1,9 +1,9 @@
-package pl.koziolekweb.progvaadin.componentsexamples.resouceexample;
+package pl.koziolekweb.progvaadin.componentsexamples.otherexample;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Flash;
 import com.vaadin.ui.HorizontalSplitPanel;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
+import pl.koziolekweb.progvaadin.AbstractItemNode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,9 +20,9 @@ public class FlashNode extends AbstractItemNode {
 	@Override
 	public void onClick() {
 		ExternalResource swfFile = new ExternalResource("http://samples.mplayerhq.hu/SWF/test.swf");
-		Flash flash = new Flash("Przykaldowa animacja", swfFile);
+		Flash flash = new Flash("Przykładowa animacja", swfFile);
 		setExample(flash);
-		setSourceCode("Flash flash = new Flash(\"Przykaldowa animacja\", swfFile);");
+		setSourceCode("Flash flash = new Flash(\"Przykładowa animacja\", swfFile);");
 		done();
 	}
 

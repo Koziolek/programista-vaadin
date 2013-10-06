@@ -2,7 +2,7 @@ package pl.koziolekweb.progvaadin.componentsexamples.formexample;
 
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Tree;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractComponentsNode;
+import pl.koziolekweb.progvaadin.AbstractNode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +11,7 @@ import pl.koziolekweb.progvaadin.componentsexamples.AbstractComponentsNode;
  * Time: 13:21
  * To change this template use File | Settings | File Templates.
  */
-class SelectComponentsNode extends AbstractComponentsNode {
+class SelectComponentsNode extends AbstractNode {
 	private final String name = "Pola wyboru";
 
 	private HorizontalSplitPanel target;

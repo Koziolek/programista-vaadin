@@ -1,9 +1,9 @@
-package pl.koziolekweb.progvaadin.componentsexamples.resouceexample;
+package pl.koziolekweb.progvaadin.componentsexamples.otherexample;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.BrowserFrame;
 import com.vaadin.ui.HorizontalSplitPanel;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
+import pl.koziolekweb.progvaadin.AbstractItemNode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,11 +20,11 @@ public class FrameNode extends AbstractItemNode {
 	@Override
 	public void onClick() {
 		ExternalResource webside = new ExternalResource("http://koziolekweb.pl");
-		BrowserFrame frame = new BrowserFrame("", webside);
+		BrowserFrame frame = new BrowserFrame("Strona w ramce", webside);
 		frame.setSizeFull();
 		setExample(frame);
 		setSourceCode("BrowserFrame frame = " +
-			"new BrowserFrame(\"\", webside);");
+			"new BrowserFrame(\"Strona w ramce\", webside);");
 		done();
 	}
 

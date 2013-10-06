@@ -6,15 +6,17 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
 import pl.koziolekweb.progvaadin.componentsexamples.formexample.FormComponentsNode;
-import pl.koziolekweb.progvaadin.componentsexamples.resouceexample.ResourceComponentsNode;
+import pl.koziolekweb.progvaadin.componentsexamples.otherexample.OtherComponentsNode;
 import pl.koziolekweb.progvaadin.componentsexamples.simpleexaple.SimpleComponentsNode;
 import pl.koziolekweb.progvaadin.componentsexamples.treeexample.TreeComponentsNode;
+import pl.koziolekweb.progvaadin.resourceexamples.ApplicationResourceNode;
+import pl.koziolekweb.progvaadin.resourceexamples.ResourceNode;
 
 import javax.servlet.annotation.WebServlet;
 
 import static com.vaadin.server.Sizeable.Unit.PERCENTAGE;
 
-@Theme("runo")
+@Theme("mytheme")
 @SuppressWarnings("serial")
 public class MyVaadinUI extends UI {
 
@@ -32,7 +34,7 @@ public class MyVaadinUI extends UI {
 		splitPanel.setSplitPosition(25, PERCENTAGE);
 		splitPanel.setLocked(true);
 
-		splitPanel.setFirstComponent(prepareComponentTree());
+		splitPanel.setFirstComponent(prepareExamplesTree());
 
 		panel.setContent(splitPanel);
 
@@ -42,39 +44,62 @@ public class MyVaadinUI extends UI {
 	/**
 	 * przygotowuje drzewo
 	 */
-	private Tree prepareComponentTree() {
-		Tree componentTree = new Tree();
-		String rootItemId = "Drzewo komponentów";
-		componentTree.addItem(rootItemId);
-		componentTree.setChildrenAllowed(rootItemId, true);
-		prepareSimpleComponents(componentTree, rootItemId);
-		prepareFormComponents(componentTree, rootItemId);
-		prepareTreeComponents(componentTree, rootItemId);
-		prepareResourceComponents(componentTree, rootItemId);
-		componentTree.expandItemsRecursively(rootItemId);
-		return componentTree;
+	private Tree prepareExamplesTree() {
+		Tree examplesTree = new Tree();
+		componentsNode(examplesTree);
+		resourceNode(examplesTree);
+		return examplesTree;
 	}
 
-	private void prepareResourceComponents(Tree componentTree, String parentId) {
-		new ResourceComponentsNode(splitPanel).attachToTree(componentTree, parentId);
+	private String resourceNode(Tree examplesTree) {
+		String resourceRootItemId = "Drzewo zasobów";
+		examplesTree.addItem(resourceRootItemId);
+		examplesTree.setChildrenAllowed(resourceRootItemId, true);
+		prepareResourceComponents(examplesTree, resourceRootItemId);
+		prepareApplicationResourceComponents(examplesTree, resourceRootItemId);
+		return resourceRootItemId;
 	}
 
-	private void prepareTreeComponents(Tree componentTree, String parentId) {
-		new TreeComponentsNode(splitPanel).attachToTree(componentTree, parentId);
+	private void prepareApplicationResourceComponents(Tree examplesTree, String parentId) {
+		new ApplicationResourceNode(splitPanel).attachToTree(examplesTree, parentId);
 	}
 
-	private void prepareFormComponents(Tree componentTree, String parentId) {
-		new FormComponentsNode(splitPanel).attachToTree(componentTree, parentId);
+	private void prepareResourceComponents(Tree examplesTree, String parentId) {
+		new ResourceNode(splitPanel).attachToTree(examplesTree, parentId);
+	}
+
+
+	private String componentsNode(Tree examplesTree) {
+		String componentRootItemId = "Drzewo komponentów";
+		examplesTree.addItem(componentRootItemId);
+		examplesTree.setChildrenAllowed(componentRootItemId, true);
+		prepareSimpleComponents(examplesTree, componentRootItemId);
+		prepareFormComponents(examplesTree, componentRootItemId);
+		prepareTreeComponents(examplesTree, componentRootItemId);
+		prepareOtherComponents(examplesTree, componentRootItemId);
+		return componentRootItemId;
+	}
+
+	private void prepareOtherComponents(Tree examplesTree, String parentId) {
+		new OtherComponentsNode(splitPanel).attachToTree(examplesTree, parentId);
+	}
+
+	private void prepareTreeComponents(Tree examplesTree, String parentId) {
+		new TreeComponentsNode(splitPanel).attachToTree(examplesTree, parentId);
+	}
+
+	private void prepareFormComponents(Tree examplesTree, String parentId) {
+		new FormComponentsNode(splitPanel).attachToTree(examplesTree, parentId);
 	}
 
 	/**
 	 * Gałąź podstawowych komponentów
 	 *
-	 * @param componentTree drzewo
+	 * @param examplesTree drzewo
 	 * @param parentId      id korzenia
 	 */
-	private void prepareSimpleComponents(Tree componentTree, String parentId) {
-		new SimpleComponentsNode(splitPanel).attachToTree(componentTree, parentId);
+	private void prepareSimpleComponents(Tree examplesTree, String parentId) {
+		new SimpleComponentsNode(splitPanel).attachToTree(examplesTree, parentId);
 	}
 
 	private Panel fullWindowPanel() {

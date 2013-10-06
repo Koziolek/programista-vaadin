@@ -17,20 +17,20 @@ import java.io.InputStream;
  * Time: 13:37
  * To change this template use File | Settings | File Templates.
  */
-public class ListImageResource implements StreamResource.StreamSource {
+public class DynamicImage implements StreamResource.StreamSource {
 
 	private final String text;
 
 	private final int width;
 	private final int height;
 
-	public ListImageResource(String text) {
+	public DynamicImage(String text) {
 		this.text = text;
 		this.width = 20;
 		this.height = 20;
 	}
 
-	public ListImageResource(String text, int width, int height) {
+	public DynamicImage(String text, int width, int height) {
 		this.text = text;
 		this.width = width;
 		this.height = height;

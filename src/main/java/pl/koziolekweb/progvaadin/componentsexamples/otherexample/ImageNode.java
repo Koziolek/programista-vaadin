@@ -1,11 +1,10 @@
-package pl.koziolekweb.progvaadin.componentsexamples.resouceexample;
+package pl.koziolekweb.progvaadin.componentsexamples.otherexample;
 
-import com.vaadin.server.Resource;
 import com.vaadin.server.StreamResource;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Image;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
-import pl.koziolekweb.progvaadin.helpers.ListImageResource;
+import pl.koziolekweb.progvaadin.AbstractItemNode;
+import pl.koziolekweb.progvaadin.helpers.DynamicImage;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,9 +20,10 @@ public class ImageNode extends AbstractItemNode {
 
 	@Override
 	public void onClick() {
-		Image image = new Image("Prosty obrazek", new StreamResource(new ListImageResource("1", 100, 100), "/tmp/img.png"));
+		StreamResource pngImage = new StreamResource(new DynamicImage("1", 100, 100), "/tmp/img.png");
+		Image image = new Image("Prosty obrazek", pngImage);
 		setExample(image);
-		setSourceCode("Image image = new Image(\"Prosty obrazek\", new StreamResource(new ListImageResource(\"1\", 100, 100), \"/tmp/img.png\"));");
+		setSourceCode("Image image = new Image(\"Prosty obrazek\", pngImage);");
 		done();
 	}
 

@@ -1,4 +1,4 @@
-package pl.koziolekweb.progvaadin.componentsexamples;
+package pl.koziolekweb.progvaadin;
 
 /**
  * Interfejs pojedynczego elementu drzewa.

@@ -4,7 +4,7 @@ import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.ProgressIndicator;
 import com.vaadin.ui.Upload;
 import com.vaadin.ui.VerticalLayout;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
+import pl.koziolekweb.progvaadin.AbstractItemNode;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

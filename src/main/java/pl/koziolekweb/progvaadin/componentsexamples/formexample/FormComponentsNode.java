@@ -2,7 +2,7 @@ package pl.koziolekweb.progvaadin.componentsexamples.formexample;
 
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Tree;
-import pl.koziolekweb.progvaadin.componentsexamples.*;
+import pl.koziolekweb.progvaadin.AbstractNode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +11,7 @@ import pl.koziolekweb.progvaadin.componentsexamples.*;
  * Time: 12:24
  * To change this template use File | Settings | File Templates.
  */
-public class FormComponentsNode extends AbstractComponentsNode {
+public class FormComponentsNode extends AbstractNode {
 
 	private final String name = "Komponenty formularzy";
 

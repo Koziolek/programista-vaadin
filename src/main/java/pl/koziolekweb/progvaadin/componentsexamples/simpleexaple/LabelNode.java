@@ -1,12 +1,8 @@
 package pl.koziolekweb.progvaadin.componentsexamples.simpleexaple;
 
-import com.vaadin.event.ItemClickEvent;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalSplitPanel;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
-
-import static com.vaadin.server.Sizeable.Unit.PERCENTAGE;
+import pl.koziolekweb.progvaadin.AbstractItemNode;
 
 /**
  * Komponent wyświetlający przykładowy Label.

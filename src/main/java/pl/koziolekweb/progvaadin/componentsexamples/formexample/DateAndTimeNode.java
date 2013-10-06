@@ -5,7 +5,7 @@ import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.VerticalLayout;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractItemNode;
+import pl.koziolekweb.progvaadin.AbstractItemNode;
 
 import java.util.Date;
 

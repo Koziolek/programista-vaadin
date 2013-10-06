@@ -1,4 +1,4 @@
-package pl.koziolekweb.progvaadin.componentsexamples;
+package pl.koziolekweb.progvaadin;
 
 import com.vaadin.ui.Tree;
 
@@ -9,7 +9,7 @@ import com.vaadin.ui.Tree;
  * Time: 12:28
  * To change this template use File | Settings | File Templates.
  */
-public abstract class AbstractComponentsNode {
+public abstract class AbstractNode {
 	protected void setParent(Tree componentTree, Object parentId, Object nodeId) {
 		componentTree.setParent(nodeId, parentId);
 	}

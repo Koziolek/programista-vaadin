@@ -2,7 +2,7 @@ package pl.koziolekweb.progvaadin.componentsexamples.simpleexaple;
 
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Tree;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractComponentsNode;
+import pl.koziolekweb.progvaadin.AbstractNode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +11,7 @@ import pl.koziolekweb.progvaadin.componentsexamples.AbstractComponentsNode;
  * Time: 12:02
  * To change this template use File | Settings | File Templates.
  */
-public class SimpleComponentsNode extends AbstractComponentsNode {
+public class SimpleComponentsNode extends AbstractNode {
 
 	private final String name = "Komponenty Podstawowe";
 	private HorizontalSplitPanel target;

@@ -1,10 +1,8 @@
-package pl.koziolekweb.progvaadin.componentsexamples.resouceexample;
+package pl.koziolekweb.progvaadin.componentsexamples.otherexample;
 
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Tree;
-import pl.koziolekweb.progvaadin.componentsexamples.AbstractComponentsNode;
-import pl.koziolekweb.progvaadin.componentsexamples.simpleexaple.LabelNode;
-import pl.koziolekweb.progvaadin.componentsexamples.simpleexaple.LinkNode;
+import pl.koziolekweb.progvaadin.AbstractNode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,12 +11,12 @@ import pl.koziolekweb.progvaadin.componentsexamples.simpleexaple.LinkNode;
  * Time: 12:02
  * To change this template use File | Settings | File Templates.
  */
-public class ResourceComponentsNode extends AbstractComponentsNode {
+public class OtherComponentsNode extends AbstractNode {
 
 	private final String name = "Komponenty Zasobów";
 	private HorizontalSplitPanel target;
 
-	public ResourceComponentsNode(HorizontalSplitPanel target) {
+	public OtherComponentsNode(HorizontalSplitPanel target) {
 		this.target = target;
 	}
 

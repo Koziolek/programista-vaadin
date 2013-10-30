@@ -9,6 +9,7 @@ import pl.koziolekweb.progvaadin.componentsexamples.formexample.FormComponentsNo
 import pl.koziolekweb.progvaadin.componentsexamples.otherexample.OtherComponentsNode;
 import pl.koziolekweb.progvaadin.componentsexamples.simpleexaple.SimpleComponentsNode;
 import pl.koziolekweb.progvaadin.componentsexamples.treeexample.TreeComponentsNode;
+import pl.koziolekweb.progvaadin.formbindingexample.FormManageNode;
 import pl.koziolekweb.progvaadin.resourceexamples.ApplicationResourceNode;
 import pl.koziolekweb.progvaadin.resourceexamples.ResourceNode;
 
@@ -48,7 +49,17 @@ public class MyVaadinUI extends UI {
 		Tree examplesTree = new Tree();
 		componentsNode(examplesTree);
 		resourceNode(examplesTree);
+		bindingNode(examplesTree);
 		return examplesTree;
+	}
+
+	private String bindingNode(Tree examplesTree) {
+		String resourceRootItemId = "Drzewo formularzy i danych";
+		examplesTree.addItem(resourceRootItemId);
+		examplesTree.setChildrenAllowed(resourceRootItemId, true);
+		new FormManageNode(splitPanel).attachToTree(examplesTree, resourceRootItemId);
+		return resourceRootItemId;
+
 	}
 
 	private String resourceNode(Tree examplesTree) {
@@ -96,7 +107,7 @@ public class MyVaadinUI extends UI {
 	 * Gałąź podstawowych komponentów
 	 *
 	 * @param examplesTree drzewo
-	 * @param parentId      id korzenia
+	 * @param parentId     id korzenia
 	 */
 	private void prepareSimpleComponents(Tree examplesTree, String parentId) {
 		new SimpleComponentsNode(splitPanel).attachToTree(examplesTree, parentId);

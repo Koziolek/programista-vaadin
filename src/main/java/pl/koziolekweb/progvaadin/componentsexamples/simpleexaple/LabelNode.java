@@ -20,6 +20,7 @@ public class LabelNode extends AbstractItemNode {
 	@Override
 	public void onClick() {
 		Label label = new Label("Przykladowy napis");
+		label.setReadOnly(true);
 		setExample(label);
 		setSourceCode("Label label = new Label(\"Przykladowy napis\");");
 		done();

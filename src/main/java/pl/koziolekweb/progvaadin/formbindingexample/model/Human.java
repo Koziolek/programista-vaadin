@@ -1,6 +1,5 @@
 package pl.koziolekweb.progvaadin.formbindingexample.model;
 
-import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -58,4 +57,14 @@ public class Human {
 		this.leftHanded = leftHanded;
 	}
 
+	@Override
+	public String toString() {
+		return "Human{" +
+				"firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", birthDate=" + birthDate +
+				", leftHanded=" + leftHanded +
+				", address=" + address +
+				'}';
+	}
 }

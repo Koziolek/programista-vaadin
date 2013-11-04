@@ -20,6 +20,8 @@ public class CustomFormNode extends AbstractItemNode {
 	@Override
 	public void onClick() {
 		Human human = new Human();
+		human.setFirstName("Jan");
+		human.setLastName("Kowalski");
 		Address address = new Address();
 		address.setCity("Warszawa");
 		human.setAddress(address);

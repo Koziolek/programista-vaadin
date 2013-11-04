@@ -1,11 +1,15 @@
 package pl.koziolekweb.progvaadin.formbindingexample;
 
+import com.vaadin.data.Property;
+import com.vaadin.data.Validator;
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
-import com.vaadin.data.fieldgroup.DefaultFieldGroupFieldFactory;
-import com.vaadin.data.fieldgroup.FieldGroupFieldFactory;
-import com.vaadin.data.fieldgroup.PropertyId;
+import com.vaadin.data.fieldgroup.FieldGroup;
+import com.vaadin.data.validator.AbstractStringValidator;
+import com.vaadin.server.UserError;
 import com.vaadin.ui.*;
 import pl.koziolekweb.progvaadin.formbindingexample.model.Human;
+
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,45 +22,102 @@ public class CustomForm extends CustomComponent {
 
 	private final FormLayout root;
 
-	@PropertyId("firstName")
-	private TextField firstName = new TextField("Imię");
+	private BeanFieldGroup<Human> binding;
 
-	@PropertyId("lastName")
-	private TextField lastName = new TextField("Nazwisko");
+	private Button commit = new Button("Wyślij");
+	private Button discard = new Button("Anuluj");
+	private Field<?> firstName;
+	private Field<?> lastName;
+	private Field<?> birthDate;
+	private Field<?> leftHanded;
+	private Field<?> street;
+	private Field<?> number;
+	private Field<?> city;
 
-	@PropertyId("birthDate")
-	private DateField birthDate = new DateField("Data urodzenia");
-
-	@PropertyId("leftHanded")
-	private CheckBox leftHanded = new CheckBox("Czy leworęczny");
 
 	public CustomForm(Human human) {
-		BeanFieldGroup<Human> binding = new BeanFieldGroup<Human>(Human.class);
+		binding = new BeanFieldGroup<Human>(Human.class);
 		binding.setItemDataSource(human);
-		binding.bindMemberFields(this);
-		FieldGroupFieldFactory fieldFactory = new FieldGroupFieldFactory() {
-			private FieldGroupFieldFactory def = new DefaultFieldGroupFieldFactory();
+		binding.setFieldFactory(new MyFieldGroupFieldFactory());
+		root = new FormLayout();
+		buildAndBindFileds();
+		addListeners();
+		addValidators();
+		addButtonListeners();
+		addComponentsToForm();
+		setCompositionRoot(root);
+	}
+
+	private void addButtonListeners() {
+		commit.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(Button.ClickEvent event) {
+				try {
+					if (binding.isValid()) {
+						binding.commit();
+					}
+				} catch (FieldGroup.CommitException e) {
+					e.printStackTrace();
+				}
+				System.out.println(binding.getItemDataSource().getBean());
+			}
+		});
+		discard.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(Button.ClickEvent event) {
+				binding.discard();
+			}
+		});
+	}
+
+	private void addValidators() {
+		lastName.addValidator(new AbstractStringValidator("Nazwisko za krótkie") {
 
 			@Override
-			public <T extends Field> T createField(Class<?> dataType, Class<T> fieldType) {
-				T field = def.createField(dataType, fieldType);
-				if (field instanceof TextField)
-					((TextField) field).setNullRepresentation("");
-				return field;
+			protected boolean isValidValue(String value) {
+				return value.length() > 2;
 			}
-		};
-		binding.setFieldFactory(fieldFactory);
-		root = new FormLayout();
-		firstName.setNullRepresentation("");
+		});
+	}
+
+	private void addListeners() {
+		birthDate.addValueChangeListener(new Property.ValueChangeListener() {
+			@Override
+			public void valueChange(Property.ValueChangeEvent event) {
+				((DateField) birthDate).setComponentError(null);
+				Date now = new Date();
+				Date date = (Date) event.getProperty().getValue();
+				if (date.getTime() > now.getTime()) {
+					((DateField) birthDate).setComponentError(new UserError("Niepoprawna data"));
+				}
+
+			}
+		});
+	}
+
+	private void addComponentsToForm() {
 		addComponent(firstName);
 		addComponent(lastName);
 		addComponent(birthDate);
 		addComponent(leftHanded);
-		Field<?> street = binding.buildAndBind("Ulica", "address.street");
 		addComponent(street);
-		addComponent(binding.buildAndBind("Numer", "address.number"));
-		addComponent(binding.buildAndBind("Miasto", "address.city"));
-		setCompositionRoot(root);
+		addComponent(number);
+		addComponent(city);
+		addComponent(commit);
+		addComponent(discard);
+	}
+
+	private void buildAndBindFileds() {
+		firstName = binding.buildAndBind("Imię", "firstName");
+		lastName = binding.buildAndBind("Nazwisko", "lastName");
+		birthDate = binding.buildAndBind("Data urodzenia", "birthDate");
+		leftHanded = binding.buildAndBind("Czy leworęczny", "leftHanded");
+		street = binding.buildAndBind("Ulica", "address.street");
+		number = binding.buildAndBind("Numer", "address.number");
+		city = binding.buildAndBind("Miasto", "address.city");
+		firstName.setRequired(true);
+		lastName.setRequired(true);
+		city.setRequired(true);
 	}
 
 	private void addComponent(Component c) {
@@ -64,3 +125,4 @@ public class CustomForm extends CustomComponent {
 	}
 
 }
+

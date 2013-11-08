@@ -2,10 +2,13 @@ package pl.koziolekweb.progvaadin.formbindingexample;
 
 import com.vaadin.data.fieldgroup.DefaultFieldGroupFieldFactory;
 import com.vaadin.data.fieldgroup.FieldGroupFieldFactory;
+import com.vaadin.data.util.converter.ConverterUtil;
+import com.vaadin.server.VaadinSession;
 import com.vaadin.shared.ui.datefield.Resolution;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.TextField;
+import pl.koziolekweb.progvaadin.formbindingexample.model.Address;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,6 +27,8 @@ class MyFieldGroupFieldFactory implements FieldGroupFieldFactory {
 			((TextField) field).setNullRepresentation("");
 		if (field instanceof DateField)
 			((DateField) field).setResolution(Resolution.DAY);
+
+		System.out.println(dataType.getCanonicalName());
 
 		return field;
 	}

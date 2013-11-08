@@ -115,6 +115,7 @@ public class CustomForm extends CustomComponent {
 		street = binding.buildAndBind("Ulica", "address.street");
 		number = binding.buildAndBind("Numer", "address.number");
 		city = binding.buildAndBind("Miasto", "address.city");
+
 		firstName.setRequired(true);
 		lastName.setRequired(true);
 		city.setRequired(true);

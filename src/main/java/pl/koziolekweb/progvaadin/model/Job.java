@@ -11,11 +11,9 @@ import java.util.Date;
  */
 public class Job {
 
-	private Worker doneBy;
-	private Date start;
-	private Date end;
 	private String name;
 	private String description;
+	private JobType jobType;
 
 	public JobType getJobType() {
 		return jobType;
@@ -23,32 +21,6 @@ public class Job {
 
 	public void setJobType(JobType jobType) {
 		this.jobType = jobType;
-	}
-
-	private JobType jobType;
-
-	public Worker getDoneBy() {
-		return doneBy;
-	}
-
-	public void setDoneBy(Worker doneBy) {
-		this.doneBy = doneBy;
-	}
-
-	public Date getStart() {
-		return start;
-	}
-
-	public void setStart(Date start) {
-		this.start = start;
-	}
-
-	public Date getEnd() {
-		return end;
-	}
-
-	public void setEnd(Date end) {
-		this.end = end;
 	}
 
 	public String getName() {

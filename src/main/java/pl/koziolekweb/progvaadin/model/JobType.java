@@ -1,5 +1,7 @@
 package pl.koziolekweb.progvaadin.model;
 
+import pl.koziolekweb.progvaadin.LocalizationHelper;
+
 import static pl.koziolekweb.progvaadin.model.WorkerType.ARTST;
 import static pl.koziolekweb.progvaadin.model.WorkerType.BLUE_COLLAR;
 import static pl.koziolekweb.progvaadin.model.WorkerType.WHITE_COLLAR;
@@ -18,11 +20,18 @@ public enum JobType {
 
 	private final WorkerType workerType;
 
+	private final LocalizationHelper localizationHelper = LocalizationHelper.defaultInstance();
+
 	private JobType(WorkerType workerType) {
 		this.workerType = workerType;
 	}
 
 	public boolean isFor(WorkerType workerType) {
 		return this.workerType == workerType;
+	}
+
+	@Override
+	public String toString() {
+		return localizationHelper.get(name());
 	}
 }

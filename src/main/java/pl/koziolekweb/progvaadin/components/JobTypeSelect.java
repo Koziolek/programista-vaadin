@@ -30,8 +30,6 @@ public class JobTypeSelect extends Select {
 
 	}
 
-
-
 	private Container prepareContainer() {
 		Container container = new IndexedContainer();
 		container.addContainerProperty("name", JobType.class, null);

@@ -1,6 +1,7 @@
 package pl.koziolekweb.progvaadin.model;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -12,11 +13,19 @@ import java.util.Set;
  */
 public class Task {
 
+	private String taskName;
 	private Date start;
 	private Date end;
-
 	private Job job;
-	private Set<Worker> workers;
+	private Set<Worker> workers = new HashSet<Worker>();
+
+	public String getTaskName() {
+		return taskName;
+	}
+
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
+	}
 
 	public Date getStart() {
 		return start;
@@ -46,11 +55,11 @@ public class Task {
 		return workers;
 	}
 
-	public void addWorker(Worker worker){
+	public void addWorker(Worker worker) {
 		workers.add(worker);
 	}
 
-	public void removeWorker(Worker worker){
+	public void removeWorker(Worker worker) {
 		workers.remove(worker);
 	}
 }

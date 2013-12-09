@@ -15,6 +15,15 @@ public class Job {
 	private String description;
 	private JobType jobType;
 
+	public Job() {
+	}
+
+	public Job(String name, String description, JobType jobType) {
+		this.name = name;
+		this.description = description;
+		this.jobType = jobType;
+	}
+
 	public JobType getJobType() {
 		return jobType;
 	}

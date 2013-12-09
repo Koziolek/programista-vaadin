@@ -10,10 +10,17 @@ package pl.koziolekweb.progvaadin.model;
 public class Worker {
 
 	private String name;
-
 	private long salary;
-
 	private WorkerType typ;
+
+	public Worker() {
+	}
+
+	public Worker(String name, long salary, WorkerType typ) {
+		this.name = name;
+		this.salary = salary;
+		this.typ = typ;
+	}
 
 	public String getName() {
 		return name;

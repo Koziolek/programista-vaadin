@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * Time: 23:02
  * To change this template use File | Settings | File Templates.
  */
-public class MyFieldFactory implements FieldGroupFieldFactory {
+public class JobFieldFactory implements FieldGroupFieldFactory {
 	private DefaultFieldGroupFieldFactory dff = new DefaultFieldGroupFieldFactory();
 
 	@Override

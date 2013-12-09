@@ -12,26 +12,30 @@ public class SaveJobListener implements Button.ClickListener {
 	private JobContainer container;
 	private Window parent;
 
-	SaveJobListener(BeanFieldGroup<Job> bfg) {
+	public SaveJobListener(BeanFieldGroup<Job> bfg) {
 		this.bfg = bfg;
-	}
-
-	void setParentWindow(Window parent) {
-		this.parent = parent;
 	}
 
 	@Override
 	public void buttonClick(Button.ClickEvent event) {
 		try {
 			bfg.commit();
-			container.refreshItem(bfg.getItemDataSource().getBean().getName(), bfg.getItemDataSource().getBean());
+			Job job = bfg.getItemDataSource().getBean();
+			if (container.containsId(job))
+				container.refreshItem(job.getName(), job);
+			else
+				container.addItem(job.getName(), job);
 			parent.close();
 		} catch (FieldGroup.CommitException e) {
 			e.printStackTrace();
 		}
 	}
 
-	void setContainer(JobContainer container) {
+	public void setParentWindow(Window parent) {
+		this.parent = parent;
+	}
+
+	public void setContainer(JobContainer container) {
 		this.container = container;
 	}
 }

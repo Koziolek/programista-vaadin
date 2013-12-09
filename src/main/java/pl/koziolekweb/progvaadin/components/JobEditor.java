@@ -1,15 +1,20 @@
 package pl.koziolekweb.progvaadin.components;
 
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
-import com.vaadin.data.fieldgroup.FieldGroup;
-import com.vaadin.ui.*;
-import pl.koziolekweb.progvaadin.LocalizationHelper;
-import pl.koziolekweb.progvaadin.MyFieldFactory;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CustomComponent;
+import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.TextArea;
+import com.vaadin.ui.Window;
+import pl.koziolekweb.progvaadin.JobFieldFactory;
 import pl.koziolekweb.progvaadin.components.datacontainers.JobContainer;
 import pl.koziolekweb.progvaadin.model.Job;
 
-import static com.vaadin.ui.Button.ClickListener;
-import static pl.koziolekweb.progvaadin.model.Job_.*;
+import static pl.koziolekweb.progvaadin.components.Commons_.OK;
+import static pl.koziolekweb.progvaadin.components.ComponentCaptions_.JOB_EDITOR_CAPTION;
+import static pl.koziolekweb.progvaadin.model.Job_.JOB_DESC;
+import static pl.koziolekweb.progvaadin.model.Job_.JOB_NAME;
+import static pl.koziolekweb.progvaadin.model.Job_.JOB_TYPE;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,24 +25,25 @@ import static pl.koziolekweb.progvaadin.model.Job_.*;
  */
 public class JobEditor extends CustomComponent {
 
-	public static final LocalizationHelper LOCALIZATION_HELPER = LocalizationHelper.defaultInstance();
 	private final FormLayout layout = new FormLayout();
 	private final BeanFieldGroup<Job> bfg;
 	private final Button okButton;
 	private final SaveJobListener saveJobListener;
-	private JobContainer container;
 
 	public JobEditor() {
 		layout.setMargin(true);
-		setCaption(LOCALIZATION_HELPER.get(JobEditor.class.getName() + ".caption"));
+		setCaption(JOB_EDITOR_CAPTION());
 		bfg = new BeanFieldGroup<Job>(Job.class);
-		bfg.setFieldFactory(new MyFieldFactory());
-		layout.addComponent(bfg.buildAndBind(LOCALIZATION_HELPER.get(JOB_NAME), "name"));
-		layout.addComponent(bfg.buildAndBind(LOCALIZATION_HELPER.get(JOB_DESC), "description", TextArea.class));
-		layout.addComponent(bfg.buildAndBind(LOCALIZATION_HELPER.get(JOB_TYPE), "jobType", JobTypeSelect.class));
+		bfg.setFieldFactory(new JobFieldFactory());
+		layout.addComponent(bfg.buildAndBind(JOB_NAME(),
+				"name"));
+		layout.addComponent(bfg.buildAndBind(JOB_DESC(),
+				"description", TextArea.class));
+		layout.addComponent(bfg.buildAndBind(JOB_TYPE(),
+				"jobType", JobTypeSelect.class));
 		layout.setImmediate(true);
 
-		okButton = new Button("OK");
+		okButton = new Button(OK());
 		saveJobListener = new SaveJobListener(bfg);
 		okButton.addClickListener(saveJobListener);
 
@@ -52,13 +58,11 @@ public class JobEditor extends CustomComponent {
 	}
 
 	public void setContainer(JobContainer container) {
-		this.container = container;
 		saveJobListener.setContainer(container);
 	}
 
 	public void edit(Job job) {
 		bfg.setItemDataSource(job);
 	}
-
 }
 

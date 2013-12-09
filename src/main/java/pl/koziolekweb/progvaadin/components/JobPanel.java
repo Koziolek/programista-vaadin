@@ -59,7 +59,6 @@ public class JobPanel extends CustomComponent {
 		Button addButton = new Button(JOB_ADD());
 		addButton.addClickListener(new EditButtonClickListener(new Job()));
 		buttonPanel.addComponent(addButton);
-		buttonPanel.addComponent(new Button(JOB_REFRESH()));
 		buttonPanel.setSizeFull();
 		root.addComponent(jobList);
 		root.addComponent(buttonPanel);
